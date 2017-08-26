@@ -1,0 +1,31 @@
+syntax = "proto3";
+package etc;
+option java_package = "com.protobuf.generated";
+option java_outer_classname = "LibraryProtos";
+
+message Libraries {
+	
+	repeated Library library = 1;
+
+}
+message Library {
+	int32 libraryID = 1;
+	string organization = 2;
+	
+	enum OrganizationType {
+		ACADEMIC = 0;
+		PROFESSIONAL = 1;
+		OTHER = 2;
+	}
+	
+	OrganizationType organizationType = 3;
+	repeated Book books = 4;
+	
+}
+
+message Book {
+	int32 bookID = 1;
+	string name = 2;
+	int32 pages = 3;
+	string author = 4;
+}
